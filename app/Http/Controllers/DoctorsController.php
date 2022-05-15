@@ -27,7 +27,9 @@ class DoctorsController extends Controller
 
     public function create()
     {
-        return Inertia::render('Doctors/Create');
+        return Inertia::render('Doctors/Create', [
+            'users' => User::where('role', 2)->get(),
+        ]);
     }
 
     public function store(Request $request)
