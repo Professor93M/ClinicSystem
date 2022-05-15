@@ -17,7 +17,7 @@ class PatientsController extends Controller
     public function index()
     {
         return Inertia::render('Patients/Index', [
-            'patients' => Patients::all(),
+            'patients' => Patients::with('doctor')->get(),
         ]);
     }
 
