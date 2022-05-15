@@ -31,7 +31,7 @@ class DoctorsController extends Controller
     {
         $request->validate([
             'fullname' => 'required',
-            'age' => 'required',
+            'field' => 'required',
             'mobile' => 'required',
         ]);
 
@@ -54,7 +54,7 @@ class DoctorsController extends Controller
     {
         $request->validate([
             'fullname' => 'required',
-            'age' => 'required',
+            'field' => 'required',
             'mobile' => 'required',
         ]);
 
