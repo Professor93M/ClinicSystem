@@ -22,7 +22,7 @@ class Controller extends BaseController
     }
 
     public function uedit($id){
-        return Inertia::render([
+        return Inertia::render('Auth/Edit',[
             'user' => User::find($id),
         ]);
     }
