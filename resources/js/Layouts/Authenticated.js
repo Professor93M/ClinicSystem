@@ -9,6 +9,10 @@ export default function Authenticated({ auth, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
 
+    const isActive = (path) => {
+        return path === window.location.pathname;
+    };
+
     return (
         <div className="min-h-screen bg-gray-100">
             <nav className="bg-white border-b border-gray-100">
@@ -24,23 +28,28 @@ export default function Authenticated({ auth, header, children }) {
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 {auth.user.role == 1 ? (
                                     <>
-                                        <NavLink href={"/"} active={"/"}>
+                                        <NavLink
+                                            href={"/"}
+                                            active={isActive("/")}
+                                        >
                                             Dashboard
                                         </NavLink>
                                         <NavLink
                                             href={"/users"}
-                                            active={"users"}
+                                            active={isActive("/users")}
                                         >
                                             Users
                                         </NavLink>
                                     </>
                                 ) : (
-                                    <NavLink
-                                        href={"/paients"}
-                                        active={"paients"}
-                                    >
-                                        Patients
-                                    </NavLink>
+                                    <>
+                                        <NavLink
+                                            href={"/patients"}
+                                            active={isActive("/patients")}
+                                        >
+                                            Patients
+                                        </NavLink>
+                                    </>
                                 )}
                             </div>
                         </div>
