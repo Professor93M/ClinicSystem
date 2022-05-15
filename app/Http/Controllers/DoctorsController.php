@@ -4,82 +4,65 @@ namespace App\Http\Controllers;
 
 use App\Models\Doctors;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class DoctorsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function patients($id){
+        $doctor = Doctors::find($id);
+        return Inertia::render('Doctors/Patients', [
+            'patients' => $doctor->patients,
+        ]);
+    }
+
     public function index()
     {
-        //
+        return Inertia::render('Doctors/Index', [
+            'doctors' => Doctors::all(),
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return Inertia::render('Doctors/Create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'fullname' => 'required',
+            'age' => 'required',
+            'mobile' => 'required',
+        ]);
+
+        Doctors::create($request->all());
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Doctors  $doctors
-     * @return \Illuminate\Http\Response
-     */
     public function show(Doctors $doctors)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Doctors  $doctors
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Doctors $doctors)
     {
-        //
+        return Inertia::render('Doctors/Edit', [
+            'doctor' => $doctors,
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Doctors  $doctors
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Doctors $doctors)
     {
-        //
+        $request->validate([
+            'fullname' => 'required',
+            'age' => 'required',
+            'mobile' => 'required',
+        ]);
+
+        $doctors->update($request->all());
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Doctors  $doctors
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Doctors $doctors)
     {
-        //
+        $doctors->delete();
     }
 }
