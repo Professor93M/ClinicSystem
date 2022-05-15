@@ -31,7 +31,7 @@ Route::middleware('admin')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::resource('patients', PatientsController::class);
 
-    Route::get('/doctor/{id}/patients', [DoctorsController::class, 'patients'])->name('doctor.patients');
+    Route::get('/doctors/{id}/patients', [DoctorsController::class, 'patients'])->name('doctor.patients');
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
 }); 
