@@ -35,6 +35,12 @@ export default function Authenticated({ auth, header, children }) {
                                             Dashboard
                                         </NavLink>
                                         <NavLink
+                                            href={"/doctors"}
+                                            active={isActive("/doctors")}
+                                        >
+                                            Doctors
+                                        </NavLink>
+                                        <NavLink
                                             href={"/users"}
                                             active={isActive("/users")}
                                         >

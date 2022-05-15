@@ -28,7 +28,7 @@ export default function Create(props) {
 
     const submit = (e) => {
         e.preventDefault();
-        post(route("create"));
+        post(route("store"));
     };
 
     return (
@@ -36,80 +36,122 @@ export default function Create(props) {
             <Head title="Register" />
 
             <ValidationErrors errors={errors} />
+            <div className="py-12">
+                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                        <div className="p-6 text-md bg-white border-b first-letter:capitalize border-gray-200">
+                            <form
+                                onSubmit={submit}
+                                className="max-w-md mx-auto  grid grid-cols-2 gap-x-4"
+                            >
+                                <div className="mt-4">
+                                    <Label
+                                        forInput="fullname"
+                                        value="Fullname"
+                                    />
+                                    <Input
+                                        type="text"
+                                        name="fullname"
+                                        value={data.fullname}
+                                        className="mt-1 block w-full"
+                                        handleChange={onHandleChange}
+                                        required
+                                    />
+                                </div>
+                                <div className="mt-4">
+                                    <Label forInput="age" value="Age" />
+                                    <Input
+                                        type="text"
+                                        name="age"
+                                        value={data.age}
+                                        className="mt-1 block w-full"
+                                        handleChange={onHandleChange}
+                                        required
+                                    />
+                                </div>
+                                <div className="mt-4">
+                                    <Label
+                                        forInput="doctors_id"
+                                        value="Doctors"
+                                    />
 
-            <form onSubmit={submit}>
-                <div>
-                    <Label forInput="fullname" value="fullname" />
+                                    <Combo
+                                        name="text"
+                                        value={data.doctors_id}
+                                        options={props.doctors}
+                                        className="mt-1 block w-full"
+                                        handleChange={onHandleChange}
+                                        required
+                                        add={true}
+                                        placeholder="Select doctor"
+                                    />
+                                </div>
 
-                    <Input
-                        type="text"
-                        name="fullname"
-                        value={data.fullname}
-                        classname="mt-1 block w-full"
-                        autoComplete="fullname"
-                        isFocused={true}
-                        handleChange={onHandleChange}
-                        required
-                    />
+                                <div className="mt-4">
+                                    <Label forInput="address" value="Address" />
+
+                                    <Input
+                                        type="text"
+                                        name="address"
+                                        value={data.address}
+                                        className="mt-1 block w-full"
+                                        autoComplete="new-password"
+                                        handleChange={onHandleChange}
+                                        required
+                                    />
+                                </div>
+
+                                <div className="mt-4">
+                                    <Label forInput="mobile" value="Mobile" />
+
+                                    <Input
+                                        type="text"
+                                        name="mobile"
+                                        value={data.mobile}
+                                        className="mt-1 block w-full"
+                                        handleChange={onHandleChange}
+                                        required
+                                    />
+                                </div>
+                                <div className="mt-4">
+                                    <Label forInput="disease" value="Disease" />
+
+                                    <Input
+                                        type="text"
+                                        name="disease"
+                                        value={data.disease}
+                                        className="mt-1 block w-full"
+                                        handleChange={onHandleChange}
+                                        required
+                                    />
+                                </div>
+                                <div className="mt-4 col-span-2">
+                                    <Label forInput="notes" value="Notes" />
+
+                                    <Input
+                                        type="text"
+                                        name="note"
+                                        value={data.note}
+                                        className="mt-1 block w-full"
+                                        handleChange={onHandleChange}
+                                        required
+                                    />
+                                </div>
+
+                                <div className="mt-8 flex items-center col-span-2 justify-center">
+                                    <button
+                                        type="submit"
+                                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                        disabled={processing}
+                                    >
+                                        Add
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-
-                <div className="mt-4">
-                    <Label forInput="age" value="age" />
-                    <Input
-                        type="text"
-                        name="age"
-                        value={data.age}
-                        className="mt-1 block w-full"
-                        autoComplete="age"
-                        handleChange={onHandleChange}
-                        required
-                    />
-                </div>
-                {/* <div className="mt-4">
-                    <Label forInput="doctors_id" value="doctors_id" />
-
-                    <Combo
-                        name="text"
-                        value={data.doctors_id}
-                        options={props.doctors}
-                        className="mt-1 block w-full"
-                        handleChange={onHandleChange}
-                        required
-                        add={true}
-                        placeholder="Select doctor"
-                    />
-                </div> */}
-
-                <div className="mt-4">
-                    <Label forInput="password" value="Password" />
-
-                    <Input
-                        type="password"
-                        name="password"
-                        value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
-                        handleChange={onHandleChange}
-                        required
-                    />
-                </div>
-
-                <div className="mt-4">
-                    <Label
-                        forInput="password_confirmation"
-                        value="Confirm Password"
-                    />
-
-                    <Input
-                        type="password"
-                        name="password_confirmation"
-                        value={data.password_confirmation}
-                        className="mt-1 block w-full"
-                        handleChange={onHandleChange}
-                        required
-                    />
-                </div>
-            </form>
+            </div>
         </Authenticated>
     );
 }
