@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\PastientController;
+use App\Http\Controllers\PatientsController;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +25,7 @@ Route::middleware('admin')->group(function () {
 
 // USERS ROUTES ++++++++++++++++++++++++
 Route::middleware('auth')->group(function () {
-    Route::resource('Pastient', PastientController::class);
+    Route::resource('patients', PatientsController::class);
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
 }); 
