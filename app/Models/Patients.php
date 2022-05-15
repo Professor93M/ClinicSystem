@@ -14,7 +14,7 @@ class Patients extends Model
         'age',
         'mobile',
         'address',
-        'doctor_id',
+        'doctors_id',
         'note',
     ];
 
