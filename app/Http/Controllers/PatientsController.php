@@ -27,7 +27,9 @@ class PatientsController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Patients/Create');
+        return Inertia::render('Patients/Create', [
+            'doctors' => Doctors::all(),
+        ]);
     }
 
     /**
