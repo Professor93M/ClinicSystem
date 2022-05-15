@@ -12,10 +12,15 @@ class Doctors extends Model
     protected $fillable = [
         'fullname',
         'field',
-        'mobile'
+        'mobile',
+        'users_id',
     ];
     
     public function paient(){
         return $this->belongsTo('App\Models\Patients');
+    }
+
+    public function user(){
+        return $this->belongsTo('App\Models\Users');
     }
 }

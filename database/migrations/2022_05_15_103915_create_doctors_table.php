@@ -18,6 +18,8 @@ class CreateDoctorsTable extends Migration
             $table->string("fullname");
             $table->string("field");
             $table->string("mobile");
+            $table->unsignedBigInteger('users_id');
+            $table->foreign('users_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

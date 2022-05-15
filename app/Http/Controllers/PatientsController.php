@@ -48,6 +48,7 @@ class PatientsController extends Controller
         ]);
 
         Patients::create($request->all());
+        return redirect()->route('patients.index');
     }
 
     /**
@@ -90,6 +91,7 @@ class PatientsController extends Controller
         ]);
 
         Patients::find($id)->update($request->all());
+        return redirect()->route('patients.index');
     }
 
     /**
@@ -101,5 +103,6 @@ class PatientsController extends Controller
     public function destroy($id)
     {
         Patients::destroy($id);
+        return redirect()->route('patients.index');
     }
 }
