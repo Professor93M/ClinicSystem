@@ -28,8 +28,16 @@ export default function Create(props) {
 
     const submit = (e) => {
         e.preventDefault();
-        post(route("store"));
+        post("/patients");
+        // console.log(data);
     };
+
+    const doctors = props.doctors.map((doctor) => {
+        return {
+            value: doctor.id,
+            name: doctor.fullname,
+        };
+    });
 
     return (
         <Authenticated auth={props.auth} errors={props.errors}>
@@ -76,9 +84,9 @@ export default function Create(props) {
                                     />
 
                                     <Combo
-                                        name="text"
+                                        name="doctors_id"
                                         value={data.doctors_id}
-                                        options={props.doctors}
+                                        options={doctors}
                                         className="mt-1 block w-full"
                                         handleChange={onHandleChange}
                                         required

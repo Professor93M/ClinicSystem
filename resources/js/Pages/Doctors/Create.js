@@ -28,6 +28,15 @@ export default function Create(props) {
         Inertia.post("/doctors", data);
     };
 
+    const users = props.users.map((user) => {
+        return {
+            value: user.id,
+            name: user.name,
+        };
+    });
+
+    console.log(users);
+
     return (
         <Authenticated auth={props.auth} errors={props.errors}>
             <Head title="Add Doctor" />
@@ -76,6 +85,23 @@ export default function Create(props) {
                                         className="mt-1 block w-full"
                                         handleChange={onHandleChange}
                                         required
+                                    />
+                                </div>
+                                <div className="mt-4 col-span-2">
+                                    <Label
+                                        forInput="doctors_id"
+                                        value="Doctors user"
+                                    />
+
+                                    <Combo
+                                        name="users_id"
+                                        value={data.users_id}
+                                        options={users}
+                                        className="mt-1 block w-full rounded-md"
+                                        handleChange={onHandleChange}
+                                        required
+                                        add={true}
+                                        placeholder="Select doctor"
                                     />
                                 </div>
                                 <div className="mt-8 flex items-center col-span-2 justify-center">

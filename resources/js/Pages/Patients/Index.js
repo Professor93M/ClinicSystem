@@ -28,24 +28,42 @@ export default function Index(props) {
                                     Add patient
                                 </Link>
                             </div>
-                            <table className="w-full text-center mt-8">
+                            <table className="w-full mt-4">
                                 <thead>
-                                    <tr>
-                                        <th>id</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Address</th>
+                                    <tr className="text-md font-semibold text-center tracking-wide  text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+                                        <th className="px-4 py-3">id</th>
+                                        <th className="px-4 py-3">Name</th>
+                                        <th className="px-4 py-3">Age</th>
+                                        <th className="px-4 py-3">Mobile</th>
+                                        <th className="px-4 py-3">Address</th>
+                                        <th className="px-4 py-3">Disease</th>
+                                        <th className="px-4 py-3">Note</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    {props.patients.map((patient, index) => (
-                                        <tr key={index}>
-                                            <td>{patient.id}</td>
-                                            <td>{patient.name}</td>
-                                            <td>{patient.email}</td>
-                                            <td>{patient.phone}</td>
-                                            <td>{patient.address}</td>
+                                <tbody className="bg-white">
+                                    {props.patients.map((patient) => (
+                                        <tr className="text-gray-700 text-center">
+                                            <td className="px-4 py-3">
+                                                {patient.id}
+                                            </td>
+                                            <td className="px-4 py-3">
+                                                {patient.fullname}
+                                            </td>
+                                            <td className="px-4 py-3">
+                                                {patient.age}
+                                            </td>
+                                            <td className="px-4 py-3">
+                                                {patient.mobile}
+                                            </td>
+                                            <td className="px-4 py-3">
+                                                {patient.address}
+                                            </td>
+                                            <td className="px-4 py-3">
+                                                {patient.disease}
+                                            </td>
+                                            <td className="px-4 py-3">
+                                                {patient.note}
+                                            </td>
                                         </tr>
                                     ))}
                                 </tbody>

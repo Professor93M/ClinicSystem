@@ -28,22 +28,31 @@ export default function Index(props) {
                                     Add doctor
                                 </Link>
                             </div>
-                            <table className="w-full text-center mt-8">
+
+                            <table className="w-full mt-4">
                                 <thead>
-                                    <tr>
-                                        <th>id</th>
-                                        <th>Name</th>
-                                        <th>Mobile</th>
-                                        <th>Field</th>
+                                    <tr className="text-md font-semibold text-center tracking-wide  text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+                                        <th className="px-4 py-3">id</th>
+                                        <th className="px-4 py-3">Name</th>
+                                        <th className="px-4 py-3">Mobile</th>
+                                        <th className="px-4 py-3">Field</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    {props.doctors.map((doctor, index) => (
-                                        <tr key={index}>
-                                            <td>{doctor.id}</td>
-                                            <td>{doctor.name}</td>
-                                            <td>{doctor.mobile}</td>
-                                            <td>{doctor.field}</td>
+                                <tbody className="bg-white">
+                                    {props.doctors.map((doctor) => (
+                                        <tr className="text-gray-700 text-center">
+                                            <td className="px-4 py-3">
+                                                {doctor.id}
+                                            </td>
+                                            <td className="px-4 py-3">
+                                                {doctor.fullname}
+                                            </td>
+                                            <td className="px-4 py-3">
+                                                {doctor.mobile}
+                                            </td>
+                                            <td className="px-4 py-3">
+                                                {doctor.field}
+                                            </td>
                                         </tr>
                                     ))}
                                 </tbody>
