@@ -22,9 +22,9 @@ Route::middleware('admin')->group(function () {
     
     Route::resource('doctors', DoctorsController::class);
     Route::get('/users', [Controller::class, 'index']);
-    Route::get('/users/edit', [Controller::class, 'uedit']);
-    Route::put('/users/update', [Controller::class, 'uupdate'])->name('users.update');
-    Route::delete('/users/delete', [Controller::class, 'udelete'])->name('users.delete');
+    Route::get('/users/{id}/edit', [Controller::class, 'uedit']);
+    Route::put('/users/{id}', [Controller::class, 'uupdate'])->name('users.update');
+    Route::delete('/users/{id}', [Controller::class, 'udelete'])->name('users.delete');
 });
 
 // USERS ROUTES ++++++++++++++++++++++++
