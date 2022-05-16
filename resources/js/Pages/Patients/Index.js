@@ -91,8 +91,8 @@ export default function Index(props) {
                                                 <Button
                                                     type="button"
                                                     handleClick={() =>
-                                                        Inertia.post(
-                                                            `/patients/${patient.id}/delete`
+                                                        Inertia.delete(
+                                                            `/patients/${patient.id}/`
                                                         )
                                                     }
                                                     className="block w-fit bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
