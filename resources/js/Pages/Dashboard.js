@@ -32,17 +32,16 @@ export default function Dashboard(props) {
 
                                     <div className="flex gap-x-4">
                                         <Link
-                                            href={"doctors/create"}
+                                            href={"/register"}
                                             className="mt-8 block w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                                         >
-                                            Add doctor
+                                            Add user
                                         </Link>
-
                                         <Link
-                                            href={"/register"}
+                                            href={"doctors/create"}
                                             className="mt-8 block w-fit bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded"
                                         >
-                                            Add receptionist
+                                            Add doctor
                                         </Link>
                                     </div>
                                 </>

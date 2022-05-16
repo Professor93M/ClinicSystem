@@ -21,12 +21,14 @@ export default function Index(props) {
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 text-md bg-white border-b first-letter:capitalize border-gray-200">
                             <div className="">
-                                <Link
-                                    href={"/patients/create"}
-                                    className="mt-8 block w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                                >
-                                    Add patient
-                                </Link>
+                                {props.auth.user.role == 3 && (
+                                    <Link
+                                        href={"/patients/create"}
+                                        className="mt-8 block w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                    >
+                                        Add patient
+                                    </Link>
+                                )}
                             </div>
                             <table className="w-full mt-4">
                                 <thead>
@@ -38,6 +40,7 @@ export default function Index(props) {
                                         <th className="px-4 py-3">Address</th>
                                         <th className="px-4 py-3">Disease</th>
                                         <th className="px-4 py-3">Note</th>
+                                        <th className="px-4 py-3">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white">
@@ -63,6 +66,20 @@ export default function Index(props) {
                                             </td>
                                             <td className="px-4 py-3">
                                                 {patient.note}
+                                            </td>
+                                            <td className="px-4 py-3">
+                                                <Link
+                                                    href={`/patients/${patient.id}/edit`}
+                                                    className="mt-8 block w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                                >
+                                                    Edit
+                                                </Link>
+                                                <Link
+                                                    href={`/patients/${patient.id}/edit`}
+                                                    className="mt-8 block w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                                >
+                                                    Edit
+                                                </Link>
                                             </td>
                                         </tr>
                                     ))}
