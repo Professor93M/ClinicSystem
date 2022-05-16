@@ -17,6 +17,7 @@ export default function Edit(props) {
         doctors_id: props.patient.doctors_id || "",
         _method: "put",
     });
+    console.log(data);
 
     const onHandleChange = (event) => {
         setData(
@@ -30,18 +31,25 @@ export default function Edit(props) {
     const submit = (e) => {
         e.preventDefault();
         post(`/patients/${props.patient.id}`, data);
-        // console.log(data);
     };
 
-    // const doctors = props.doctors.map((doctor) => {
-    //     return {
-    //         value: doctor.id,
-    //         name: doctor.fullname,
-    //     };
-    // });
+    const doctors = props.doctors.map((doctor) => {
+        return {
+            value: doctor.id,
+            name: doctor.fullname,
+        };
+    });
 
     return (
-        <Authenticated auth={props.auth} errors={props.errors}>
+        <Authenticated
+            header={
+                <h2 className="font-semibold text-center text-xl text-gray-800 leading-tight">
+                    Edit Patient {props.patient.fullname}
+                </h2>
+            }
+            auth={props.auth}
+            errors={props.errors}
+        >
             <Head title="Register" />
 
             <ValidationErrors errors={errors} />
@@ -78,7 +86,7 @@ export default function Edit(props) {
                                         required
                                     />
                                 </div>
-                                {/* <div className="mt-4">
+                                <div className="mt-4">
                                     <Label
                                         forInput="doctors_id"
                                         value="Doctors"
@@ -94,7 +102,7 @@ export default function Edit(props) {
                                         add={true}
                                         placeholder="Select doctor"
                                     />
-                                </div> */}
+                                </div>
 
                                 <div className="mt-4">
                                     <Label forInput="address" value="Address" />
