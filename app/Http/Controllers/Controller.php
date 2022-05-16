@@ -16,7 +16,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function index(){
-        return Inertia::render([
+        return Inertia::render('Auth/Index',[
             'users' => User::all(),
         ]);
     }

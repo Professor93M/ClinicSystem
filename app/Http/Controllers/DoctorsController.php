@@ -50,15 +50,16 @@ class DoctorsController extends Controller
         //
     }
 
-    public function edit(Doctors $doctors)
+    public function edit($id)
     {
+
         return Inertia::render('Doctors/Edit', [
-            'doctor' => $doctors,
+            'doctor' => Doctors::find($id),
             'users' => User::where('role', 2)->get(),
         ]);
     }
 
-    public function update(Request $request, Doctors $doctors)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'fullname' => 'required',
@@ -66,13 +67,14 @@ class DoctorsController extends Controller
             'mobile' => 'required',
             'users_id' => 'required',
         ]);
-
+        $doctors = Doctors::find($id);
         $doctors->update($request->all());
         return redirect()->route('doctors.index');
     }
 
-    public function destroy(Doctors $doctors)
+    public function destroy($id)
     {
+        $doctors = Doctors::find($id);
         $doctors->delete();
         return redirect()->route('doctors.index');
     }
