@@ -103,7 +103,7 @@ class PatientsController extends Controller
      */
     public function destroy($id)
     {
-        Patients::destroy($id);
+        Patients::find($id)->delete();
         return redirect()->route('patients.index');
     }
 }

@@ -21,7 +21,7 @@ Route::middleware('admin')->group(function () {
     Route::post('register', [RegisteredUserController::class, 'store']);
     
     Route::resource('doctors', DoctorsController::class);
-    Route::get('/users', [Controller::class, 'index']);
+    Route::get('/users', [Controller::class, 'index'])->name('users.index');
     Route::get('/users/{id}/edit', [Controller::class, 'uedit']);
     Route::put('/users/{id}', [Controller::class, 'uupdate'])->name('users.update');
     Route::delete('/users/{id}', [Controller::class, 'udelete'])->name('users.delete');
