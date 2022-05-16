@@ -71,7 +71,7 @@ class PatientsController extends Controller
     public function edit($id)
     {
         return Inertia::render('Patients/Edit', [
-            'patient' => Patients::find($id),
+            'patient' => Patients::with('doctors')->find($id),
         ]);
     }
 
