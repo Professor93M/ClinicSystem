@@ -72,6 +72,7 @@ class PatientsController extends Controller
     {
         return Inertia::render('Patients/Edit', [
             'patient' => Patients::with('doctors')->find($id),
+            'doctors' => Doctors::all(),
         ]);
     }
 
