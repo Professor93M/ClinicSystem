@@ -40,7 +40,15 @@ export default function Create(props) {
     });
 
     return (
-        <Authenticated auth={props.auth} errors={props.errors}>
+        <Authenticated
+            auth={props.auth}
+            header={
+                <h2 className="font-semibold text-center text-xl text-gray-800 leading-tight">
+                    Add Patient
+                </h2>
+            }
+            errors={props.errors}
+        >
             <Head title="Register" />
 
             <ValidationErrors errors={errors} />

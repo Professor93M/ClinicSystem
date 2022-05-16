@@ -38,7 +38,15 @@ export default function Create(props) {
     console.log(users);
 
     return (
-        <Authenticated auth={props.auth} errors={props.errors}>
+        <Authenticated
+            auth={props.auth}
+            header={
+                <h2 className="font-semibold text-center text-xl text-gray-800 leading-tight">
+                    Add Doctor
+                </h2>
+            }
+            errors={props.errors}
+        >
             <Head title="Add Doctor" />
 
             <ValidationErrors errors={errors} />
