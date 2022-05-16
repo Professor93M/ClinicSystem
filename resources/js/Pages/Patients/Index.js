@@ -47,8 +47,11 @@ export default function Index(props) {
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white">
-                                    {props.patients.map((patient) => (
-                                        <tr className="text-gray-700 text-center">
+                                    {props.patients.map((patient, index) => (
+                                        <tr
+                                            key={index}
+                                            className="text-gray-700 text-center"
+                                        >
                                             <td className="px-4 py-3">
                                                 {patient.id}
                                             </td>
