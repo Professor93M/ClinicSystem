@@ -20,7 +20,7 @@ class Doctors extends Model
         return $this->belongsTo('App\Models\Patients');
     }
 
-    public function user(){
+    public function users(){
         return $this->belongsTo('App\Models\Users');
     }
 }
