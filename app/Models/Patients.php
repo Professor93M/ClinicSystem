@@ -19,7 +19,7 @@ class Patients extends Model
         'note',
     ];
 
-    public function doctor(){
-        return $this->hasMany('App\Models\Doctors');
+    public function doctors(){
+        return $this->belongsTo('App\Models\Doctors');
     }
 }

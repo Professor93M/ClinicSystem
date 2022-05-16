@@ -16,8 +16,8 @@ class Doctors extends Model
         'users_id',
     ];
     
-    public function paient(){
-        return $this->belongsTo('App\Models\Patients');
+    public function paients(){
+        return $this->hasMany('App\Models\Patients');
     }
 
     public function users(){
