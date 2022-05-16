@@ -19,7 +19,7 @@ class CreateDoctorsTable extends Migration
             $table->string("field");
             $table->string("mobile");
             $table->unsignedBigInteger('users_id');
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('users_id')->references('id')->on('users')->constrained()->onDelete('cascade');;
             $table->timestamps();
         });
     }

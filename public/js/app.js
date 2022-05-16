@@ -3747,7 +3747,7 @@ function Index(props) {
                       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
                         type: "button",
                         handleClick: function handleClick() {
-                          return _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post("/doctors/".concat(doctor.id, "/delete"));
+                          return _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia["delete"]("/doctors/".concat(doctor.id));
                         },
                         className: "block w-fit bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded",
                         children: "Delete"
@@ -4284,7 +4284,7 @@ function Index(props) {
                       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
                         type: "button",
                         handleClick: function handleClick() {
-                          return _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post("/patients/".concat(patient.id, "/delete"));
+                          return _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia["delete"]("/patients/".concat(patient.id, "/"));
                         },
                         className: "block w-fit bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded",
                         children: "Delete"
