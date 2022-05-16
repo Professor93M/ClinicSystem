@@ -1,6 +1,8 @@
 import React from "react";
 import Authenticated from "@/Layouts/Authenticated";
 import { Head, Link } from "@inertiajs/inertia-react";
+import Button from "@/Components/Button";
+import { Inertia } from "@inertiajs/inertia";
 
 export default function Index(props) {
     // console.log(props);
@@ -32,9 +34,10 @@ export default function Index(props) {
                             </div>
                             <table className="w-full mt-4">
                                 <thead>
-                                    <tr className="text-md font-semibold text-center tracking-wide  text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+                                    <tr className="text-md font-semibold text-center tracking-wide  text-gray-900 bg-gray-100 capitalize border-b border-gray-600">
                                         <th className="px-4 py-3">id</th>
                                         <th className="px-4 py-3">Name</th>
+                                        <th className="px-4 py-3">Doctor</th>
                                         <th className="px-4 py-3">Age</th>
                                         <th className="px-4 py-3">Mobile</th>
                                         <th className="px-4 py-3">Address</th>
@@ -53,6 +56,9 @@ export default function Index(props) {
                                                 {patient.fullname}
                                             </td>
                                             <td className="px-4 py-3">
+                                                {patient.doctors.fullname}
+                                            </td>
+                                            <td className="px-4 py-3">
                                                 {patient.age}
                                             </td>
                                             <td className="px-4 py-3">
@@ -67,19 +73,29 @@ export default function Index(props) {
                                             <td className="px-4 py-3">
                                                 {patient.note}
                                             </td>
-                                            <td className="px-4 py-3">
-                                                <Link
-                                                    href={`/patients/${patient.id}/edit`}
-                                                    className="mt-8 block w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                            <td className="px-4 py-3 flex gap-x-3 justify-center items-center">
+                                                <Button
+                                                    type="button"
+                                                    handleClick={() =>
+                                                        Inertia.get(
+                                                            `/patients/${patient.id}/edit`
+                                                        )
+                                                    }
+                                                    className="block w-fit bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded"
                                                 >
                                                     Edit
-                                                </Link>
-                                                <Link
-                                                    href={`/patients/${patient.id}/edit`}
-                                                    className="mt-8 block w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                                </Button>
+                                                <Button
+                                                    type="button"
+                                                    handleClick={() =>
+                                                        Inertia.post(
+                                                            `/patients/${patient.id}/delete`
+                                                        )
+                                                    }
+                                                    className="block w-fit bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
                                                 >
-                                                    Edit
-                                                </Link>
+                                                    Delete
+                                                </Button>
                                             </td>
                                         </tr>
                                     ))}

@@ -1,6 +1,8 @@
 import React from "react";
 import Authenticated from "@/Layouts/Authenticated";
 import { Head, Link } from "@inertiajs/inertia-react";
+import Button from "@/Components/Button";
+import { Inertia } from "@inertiajs/inertia";
 
 export default function Index(props) {
     // console.log(props);
@@ -31,11 +33,12 @@ export default function Index(props) {
 
                             <table className="w-full mt-4">
                                 <thead>
-                                    <tr className="text-md font-semibold text-center tracking-wide  text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+                                    <tr className="text-md font-semibold text-center tracking-wide  text-gray-900 bg-gray-100 capitalize border-b border-gray-600">
                                         <th className="px-4 py-3">id</th>
                                         <th className="px-4 py-3">Name</th>
                                         <th className="px-4 py-3">Mobile</th>
                                         <th className="px-4 py-3">Field</th>
+                                        <th className="px-4 py-3">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white">
@@ -52,6 +55,30 @@ export default function Index(props) {
                                             </td>
                                             <td className="px-4 py-3">
                                                 {doctor.field}
+                                            </td>
+                                            <td className="px-4 py-3 flex gap-x-3 justify-center items-center">
+                                                <Button
+                                                    type="button"
+                                                    handleClick={() =>
+                                                        Inertia.get(
+                                                            `/doctors/${doctor.id}/edit`
+                                                        )
+                                                    }
+                                                    className="block w-fit bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded"
+                                                >
+                                                    Edit
+                                                </Button>
+                                                <Button
+                                                    type="button"
+                                                    handleClick={() =>
+                                                        Inertia.post(
+                                                            `/doctors/${doctor.id}/delete`
+                                                        )
+                                                    }
+                                                    className="block w-fit bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                                                >
+                                                    Delete
+                                                </Button>
                                             </td>
                                         </tr>
                                     ))}
