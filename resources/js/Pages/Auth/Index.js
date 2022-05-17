@@ -24,7 +24,7 @@ export default function Index(props) {
                         <div className="p-6 text-md bg-white border-b first-letter:capitalize border-gray-200">
                             <div className="">
                                 <Link
-                                    href={"doctors/create"}
+                                    href={"/register"}
                                     className="mt-8 block w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                                 >
                                     Add user
